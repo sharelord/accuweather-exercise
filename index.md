@@ -1,37 +1,39 @@
-## Welcome to GitHub Pages
+# accuweather-app
+Coding exercise given by **Testvagrant Technologies**
 
-You can use the [editor on GitHub](https://github.com/sharelord/accuweather-exercise/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+# Getting Started
 
-### Markdown
+## Set up the Test Environment
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+This application will work on any computer running Windows, macOS or Linux.
 
-```markdown
-Syntax highlighted code block
+## Prerequisites
 
-# Header 1
-## Header 2
-### Header 3
+You will need to ensure the following prerequisites are satisfied before running this application.
+Detailed instructions are offered here, but you do not need to follow them if you have satisfied the requirements in another way.
 
-- Bulleted
-- List
+* [Download and install git](https://git-scm.com/downloads)
+* Install JAVA
+    * Download [JDK](https://www.oracle.com/java/technologies/javase-downloads.html) - any latest should be good
+    * Install JDK and set the JAVA_HOME environment
+        * Windows users should add it in [System variables](https://javatutorial.net/set-java-home-windows-10)
+        * macOS for versions < 10.15 should set it in [bash_profile](https://www.baeldung.com/java-home-on-windows-7-8-10-mac-os-x-linux#2-single-user---mac-os-x-older-versions) file
+        * macOS for versions = 10.15 should set it in [bash_profile](https://www.baeldung.com/java-home-on-windows-7-8-10-mac-os-x-linux#1-single-user---mac-os-x-105-or-newer) file
+        * macOS for versions >= 11.00 should set it in [zshrc](https://mkyong.com/java/how-to-set-java_home-environment-variable-on-mac-os-x/#java-home-and-macos-11-big-sur) file in the same way as for **bash_profile**
+        * linux user should set it in [bashrc](https://www.baeldung.com/java-home-on-windows-7-8-10-mac-os-x-linux#1-single-user) file
 
-1. Numbered
-2. List
+## Web app info
+APP URL - https://www.accuweather.com/
+App Key - 7fe67bf08c80ded756e598d6f8fedaea
+* End Point Used-
+  * Get City latitude and longitude: http://api.openweathermap.org/geo/1.0/direct?q=Pune,IN&limit=10&appid=7fe67bf08c80ded756e598d6f8fedaea
+  * Get the Temperature - https://api.openweathermap.org/data/2.5/weather?lat=18.521428&lon=73.8544541&appid=7fe67bf08c80ded756e598d6f8fedaea
 
-**Bold** and _Italic_ and `Code` text
+## Steps to run the test:
+ * `git clone https://github.com/sharelord/accuweather-exercise.git`
+ * Take a checkout of https://github.com/sharelord/accuweather-exercise/tree/test-branch
+ * Go to src/test/java/scripts/HomeScript.java and Run the test
 
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/sharelord/accuweather-exercise/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## Reporting
+* User can open the `ExtentReport.html` generated after the run
