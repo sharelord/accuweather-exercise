@@ -1,0 +1,36 @@
+/dist
+/dist-test
+/node_modules
+/reports
+/screenshots
+/src/debugAuth.jsx
+/testing
+/coverage
+
+*-override.js*
+
+npm-debug.log
+.DS_Store
+.idea
+.env.json
+dist-test
+build
+/target/
+*/target/**
+**/META-INF/
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
