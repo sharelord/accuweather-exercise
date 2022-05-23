@@ -127,7 +127,8 @@ public abstract class BasePage {
 	public boolean verifyURL(String url) {
 		boolean value = false;
 		String currentUrl = driver.getCurrentUrl();
-		Assert.assertTrue(currentUrl.contains(url),"Page is not opened for entered city");
+		System.out.println(currentUrl);
+		Assert.assertTrue(currentUrl.contains(url.toLowerCase()),"Page is not opened for entered city");
 		if (currentUrl.contains(url))
 			return true;
 		else
@@ -188,10 +189,8 @@ public abstract class BasePage {
 	}
 
 	public void verifyTempeartureIsWithinRange(double tempFromAPI, double tmpFromUI){
-//		double apiTemp = convertKelvinInToCelsius(tempFromAPI);
 		int value = Double.compare(tempFromAPI,tmpFromUI);
 		double res = 0.0;
-		System.out.println(value);
 
 		if(value > 0) {
 			res =tempFromAPI-tmpFromUI;

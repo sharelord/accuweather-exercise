@@ -78,10 +78,7 @@ public abstract class BaseTest {
 			browserType = Configuration.readApplicationFile("Browser");
 		}
 		extentTest = extentReports.startTest(this.getClass().getSimpleName(),method.getName());
-		extentTest.assignAuthor("360Logica");
-
-		userName = Configuration.readApplicationFile("username");
-		password = Configuration.readApplicationFile("password");
+		extentTest.assignAuthor("Vaibhav Sharma");
 
 		this.applicationUrl = Configuration.readApplicationFile("URL");
 		this.applicationUrlAPI = Configuration.readApplicationFile("apiURL");
@@ -115,7 +112,7 @@ public abstract class BaseTest {
 //			options.setHeadless(true);
 			driver = new ChromeDriver(options);
 		} else {
-			throw new Exception("Please pass valiedbrowser type value");
+			throw new Exception("Please pass valid browser type value");
 		}
 
 		/*Delete cookies*/

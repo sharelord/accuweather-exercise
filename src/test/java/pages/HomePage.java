@@ -27,7 +27,8 @@ public class HomePage extends BasePage {
 	private WebElement temp;
 
 	  public void enterCityName(String cityName){
-		 searchInputBox.sendKeys(cityName);
+		searchInputBox.clear();
+	  	searchInputBox.sendKeys(cityName);
 	 }
 
 	 public double getTempFromUI(){

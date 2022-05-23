@@ -23,14 +23,17 @@ Detailed instructions are offered here, but you do not need to follow them if yo
         * macOS for versions >= 11.00 should set it in [zshrc](https://mkyong.com/java/how-to-set-java_home-environment-variable-on-mac-os-x/#java-home-and-macos-11-big-sur) file in the same way as for **bash_profile**
         * linux user should set it in [bashrc](https://www.baeldung.com/java-home-on-windows-7-8-10-mac-os-x-linux#1-single-user) file
 
-## Run the app
+## Web app info
 APP URL - https://www.accuweather.com/
 App Key - 7fe67bf08c80ded756e598d6f8fedaea
 * End Point Used-
   * Get City latitude and longitude: http://api.openweathermap.org/geo/1.0/direct?q=Pune,IN&limit=10&appid=7fe67bf08c80ded756e598d6f8fedaea
   * Get the Temperature - https://api.openweathermap.org/data/2.5/weather?lat=18.521428&lon=73.8544541&appid=7fe67bf08c80ded756e598d6f8fedaea
 
-Clone the following repo:
+## Steps to run the test:
  * `git clone https://github.com/sharelord/accuweather-exercise.git`
  * Take a checkout of https://github.com/sharelord/accuweather-exercise/tree/test-branch
+ * Go to src/test/java/scripts/HomeScript.java and Run the test
 
+## Reporting
+* User can open the `ExtentReport.html` generated after the run
