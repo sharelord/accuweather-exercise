@@ -35,24 +35,6 @@ public class Configuration {
 		return value;
 	}
 
-	 public String readApplicationData(String key) throws Exception
-	    {
-	    	String value = "";
-	        try{
-	        	Properties prop = new Properties();
-	        	File f = new File(path + "//src//test//resources//testdata//"+fileName+".properties");
-		          if(f.exists()){
-			          prop.load(new FileInputStream(f));
-			          value = prop.getProperty(key);
-	          	}
-		   }
-	        catch(FileNotFoundException e){
-	           System.out.println("Failed to read from application.properties file.");
-	           throw new FileNotFoundException("File not found "+fileName);
-	        }
-	        return value;
-	     }
-
 	public static String getFilePath() {
 		String filepath = "";
 		File file = new File("");

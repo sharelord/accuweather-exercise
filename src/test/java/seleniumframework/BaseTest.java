@@ -69,16 +69,13 @@ public abstract class BaseTest {
 
 	@BeforeSuite
 	public void before() {
-		extentReports = new ExtentReports("ExtentReport.html", true);
+		extentReports = new ExtentReports("ExtentReports.html", true);
 	}
 
-	@BeforeMethod
-	public void setUp(Method method) throws Exception {
+	public void setUp() throws Exception {
 		if (browserType == null) {
 			browserType = Configuration.readApplicationFile("Browser");
 		}
-		extentTest = extentReports.startTest(this.getClass().getSimpleName(),method.getName());
-		extentTest.assignAuthor("Vaibhav Sharma");
 
 		this.applicationUrl = Configuration.readApplicationFile("URL");
 		this.applicationUrlAPI = Configuration.readApplicationFile("apiURL");
@@ -105,11 +102,11 @@ public abstract class BaseTest {
 		}
 
 		else if (DriverType.Chrome.toString().toLowerCase().equals(browserType.toLowerCase())) {
-//			System.setProperty("webdriver.chrome.driver",
-//					getPath() + "/src//test//resources//webdriver/chromedriver");
 			webDriverManager.chromedriver().setup();
 			ChromeOptions options = new ChromeOptions();
-//			options.setHeadless(true);
+			options.addArguments("--window-size=1920x1080");
+			options.addArguments("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36");
+			options.setHeadless(true);
 			driver = new ChromeDriver(options);
 		} else {
 			throw new Exception("Please pass valid browser type value");
@@ -127,18 +124,28 @@ public abstract class BaseTest {
 
 	}
 
+	@BeforeMethod
+	public void startTest(Method method) {
+		extentTest = extentReports.startTest(this.getClass().getSimpleName(),method.getName());
+		extentTest.assignAuthor("Testvagrant Technologies");
+		extentTest.assignCategory(this.getClass().getCanonicalName());
+		System.out.println(method.getName());
+		System.out.println(extentTest.getDescription());
+
+	}
+
 	@AfterMethod
 	public void captureScreenShot(ITestResult result) {
 		if (result.getStatus() == ITestResult.FAILURE) {
 			captureScreenshot(result.getName());
 		}
-		driver.quit();
+//		driver.quit();
 		extentReports.endTest(extentTest);
 	}
 
 	@AfterClass
 	public void afterMainMethod() {
-		// driver.quit();
+		 driver.quit();
 	}
 
 	@AfterSuite
@@ -172,7 +179,7 @@ public abstract class BaseTest {
 			out.close();
 			String path = getPath();
 			String screen = "file://" + path + "/screenshots/" + screenshotName + ".png";
-			extentTest.log(LogStatus.FAIL, extentTest.addScreenCapture(screen));
+			extentTest.log(LogStatus.FAIL, extentTest.addScreenCapture("./screenshots/" + screenshotName + ".png"));
 			Reporter.log(
 					"<a href= '" + screen + "'target='_blank' ><img src='" + screen + "'>" + screenshotName + "</a>");
 		} catch (Exception e) {
